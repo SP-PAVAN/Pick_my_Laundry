@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './auth/ProtectedRoute';
+import SessionTimeout from './auth/SessionTimeout';
 
 const App = () => {
   return (
@@ -14,11 +15,17 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={
+            <>
+              <SessionTimeout timeout={15 * 60 * 1000} />
+              <Dashboard />
+            </>
+          } />
         </Route>
       </Routes>
     </Router>
   );
 };
+
 
 export default App;
