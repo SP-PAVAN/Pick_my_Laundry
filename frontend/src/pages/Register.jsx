@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { api } from '../api/axios';
+import { api } from '../auth/AxiosInterceptor';
 import { UserPlus, Waves } from 'lucide-react';
 import toast from 'react-hot-toast';
 
